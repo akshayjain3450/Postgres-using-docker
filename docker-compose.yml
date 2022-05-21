@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: 'docker.io/bitnami/postgresql:latest'
+    networks: ['vnet']
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTRGES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRESQL_DATABASE=postgres
+    tty: true
+
+networks:
+  vnet:
+    external:
+      name: vnet
